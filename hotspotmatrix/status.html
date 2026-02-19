@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ACTIVE SESSION - Matrix Monitor</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="status-page">
+    <canvas id="matrix-canvas"></canvas>
+    <div class="scan-line"></div>
+    <div class="overlay-grid"></div>
+    
+    <div class="container">
+        <div class="terminal-window status-window">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="btn-close"></span>
+                    <span class="btn-minimize"></span>
+                    <span class="btn-maximize"></span>
+                </div>
+                <div class="terminal-title">
+                    <span class="blink">█</span> CONNECTION MONITOR - ACTIVE SESSION
+                </div>
+            </div>
+
+            <div class="terminal-body">
+                <div class="header-section">
+                    <div class="header-logo">
+                        <img src="assets/img/logosmk.png" alt="System Logo" class="logo-small">
+                    </div>
+                    <div class="header-info">
+                        <div class="typing-text">
+                            <span class="prompt">system@monitor:~$</span> 
+                            <span class="success">[CONNECTED]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="user-profile">
+                    <div class="profile-container">
+                        <div class="profile-image-wrapper">
+                            <img src="assets/img/fotosaya.png" alt="User Profile">
+                            <div class="profile-border"></div>
+                            <div class="profile-scan"></div>
+                        </div>
+                        <div class="profile-data">
+                            <div class="profile-line">
+                                <span class="prompt">&gt;</span>
+                                <span class="label">STATUS:</span>
+                                <span class="value status-active">
+                                    <span class="status-dot"></span>
+                                    AUTHENTICATED
+                                </span>
+                            </div>
+                            <div class="profile-line">
+                                <span class="prompt">&gt;</span>
+                                <span class="label">ACCESS_LEVEL:</span>
+                                <span class="value">GRANTED</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-grid">
+                    <div class="data-block">
+                        <div class="block-header">
+                            <span class="bracket">[</span>
+                            <span class="header-text">USER_DATA</span>
+                            <span class="bracket">]</span>
+                        </div>
+                        <div class="block-content">
+                            <div class="data-row">
+                                <span class="data-icon">👤</span>
+                                <div class="data-info">
+                                    <span class="data-label">USERNAME:</span>
+                                    <span class="data-value">$(username)</span>
+                                </div>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-icon">🌐</span>
+                                <div class="data-info">
+                                    <span class="data-label">IP_ADDRESS:</span>
+                                    <span class="data-value">$(ip)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="data-block">
+                        <div class="block-header">
+                            <span class="bracket">[</span>
+                            <span class="header-text">SESSION_INFO</span>
+                            <span class="bracket">]</span>
+                        </div>
+                        <div class="block-content">
+                            <div class="data-row">
+                                <span class="data-icon">⏱</span>
+                                <div class="data-info">
+                                    <span class="data-label">UPTIME:</span>
+                                    <span class="data-value">$(uptime)</span>
+                                </div>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-icon">📡</span>
+                                <div class="data-info">
+                                    <span class="data-label">CONNECTION:</span>
+                                    <span class="data-value blink">STABLE</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="data-block">
+                        <div class="block-header">
+                            <span class="bracket">[</span>
+                            <span class="header-text">TRAFFIC_MONITOR</span>
+                            <span class="bracket">]</span>
+                        </div>
+                        <div class="block-content">
+                            <div class="data-row">
+                                <span class="data-icon">⬇</span>
+                                <div class="data-info">
+                                    <span class="data-label">DOWNLOAD:</span>
+                                    <span class="data-value">$(bytes-in)</span>
+                                </div>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-icon">⬆</span>
+                                <div class="data-info">
+                                    <span class="data-label">UPLOAD:</span>
+                                    <span class="data-value">$(bytes-out)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-panel">
+                    <a href="$(link-logout)" class="btn-disconnect" onclick="return confirmLogout()">
+                        <span class="btn-brackets">[</span>
+                        <span class="btn-text">LOGOUT</span>
+                        <span class="btn-brackets">]</span>
+                        <div class="btn-glitch"></div>
+                    </a>
+                </div>
+
+                <div class="warning-box">
+                    <div class="warning-line">
+                        <span class="warning-icon">⚠</span>
+                        <span class="warning-text">ALWAYS TERMINATE SESSION AFTER USE</span>
+                    </div>
+                </div>
+            </div>
+
+        <div class="terminal-footer">
+                <div class="footer-line">
+                    <span class="bracket">&lt;</span>
+                    DEVELOPED_BY: <span class="highlight">ADHIKA FADHIL</span>
+                    <span class="separator">|</span>
+                    CLASS: <span class="highlight">XII TKJ 4</span>
+                    <span class="bracket">&gt;</span>
+                    <span class="separator">|</span>
+                    ABSEN: <span class="highlight">02</span>
+                </div>
+                <div class="footer-line small">
+                    &copy; 2024 - UNAUTHORIZED_ACCESS_PROHIBITED
+                </div>
+            </div>
+        </div>
+
+        <div class="floating-code">
+            <div class="code-line">11000001 10100011 10110101</div>
+            <div class="code-line">01010011 01011001 01010011</div>
+            <div class="code-line">10101010 11001100 10011001</div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
